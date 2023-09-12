@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import APIRouter, Body, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
@@ -17,7 +19,7 @@ router = APIRouter(
 
 @router.get(
     "/",
-    response_model=list[AdminDonationModel],
+    response_model=List[AdminDonationModel],
     status_code=status.HTTP_200_OK,
     dependencies=[Depends(current_superuser)],
     response_model_exclude_none=True,
@@ -47,7 +49,7 @@ async def create_donation(
 
 @router.get(
     "/my",
-    response_model=list[UserDonationModel],
+    response_model=List[UserDonationModel],
     status_code=status.HTTP_200_OK,
     dependencies=[Depends(current_user)],
 )

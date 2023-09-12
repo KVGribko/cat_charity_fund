@@ -16,7 +16,7 @@ class CRUDDonation(CRUDBase):
         user_id: int,
         session: AsyncSession,
     ):
-        new_donation = self.model(**donation.model_dump(), user_id=user_id)
+        new_donation = self.model(**donation.dict(), user_id=user_id)
         session.add(new_donation)
         await session.commit()
         await session.refresh(new_donation)

@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -7,10 +8,10 @@ from app.models import CharityProject, Donation
 
 
 async def investment(session: AsyncSession):
-    donations: list[Donation] = (
+    donations: List[Donation] = (
         await donation_crud.get_not_fully_invested(session)
     )
-    projects: list[CharityProject] = (
+    projects: List[CharityProject] = (
         await charity_project_crud.get_not_fully_invested(session)
     )
     project_index = 0

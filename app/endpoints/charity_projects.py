@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import APIRouter, Body, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
@@ -22,7 +24,7 @@ router = APIRouter(
 
 @router.get(
     "/",
-    response_model=list[CharityProjectModel],
+    response_model=List[CharityProjectModel],
     status_code=status.HTTP_200_OK,
     response_model_exclude_none=True,
 )
@@ -47,7 +49,7 @@ async def create_projects(
     project = await charity_project_crud.create(project, session)
     await investment(session)
     await session.refresh(project)
-    return project
+    return CharityProjectModel.from_orm(project)
 
 
 @router.delete(

@@ -18,7 +18,7 @@ class CharityProjectModel(CharityProjectCreate):
     close_date: Optional[datetime]
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 
 class CharityProjectUpdate(BaseModel):

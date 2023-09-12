@@ -14,7 +14,7 @@ class UserDonationModel(DonationCreate):
     create_date: datetime
 
     class Config:
-        from_attributes = True
+        orm_mode = True
 
 
 class AdminDonationModel(UserDonationModel):
@@ -24,4 +24,4 @@ class AdminDonationModel(UserDonationModel):
     close_date: Optional[datetime]
 
     class Config:
-        from_attributes = True
+        orm_mode = True

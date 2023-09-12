@@ -33,7 +33,7 @@ app = get_app()
 
 if __name__ == "__main__":
     run(
-        "app.main:app",
+        "app.__main__:app",
         host=get_hostname(settings.APP_HOST),
         port=settings.APP_PORT,
         reload=True,
