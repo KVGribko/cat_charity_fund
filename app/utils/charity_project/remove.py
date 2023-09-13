@@ -4,7 +4,6 @@ from starlette import status
 
 from app.crud import charity_project_crud
 from app.models import CharityProject
-
 from .common import check_closed, get_project
 
 

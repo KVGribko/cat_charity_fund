@@ -2,7 +2,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import Donation
 from app.schemas import UserDonationModel
-
 from .base import CRUDBase
 
 
